@@ -1,0 +1,86 @@
+name: SpySimpleBan
+version: 1.0.0
+description: Simple ban plugin with IP and UUID banning
+author: spy
+main: com.spy.spysimpleban.SpySimpleBan
+api-version: 1.21
+
+commands:
+  ban:
+    description: Ban a player permanently by name, IP, and UUID
+    usage: /ban <player> <reason>
+    permission: spy.admin
+  tempban:
+    description: Temporarily ban a player by name, IP, and UUID
+    usage: /tempban <player> <time> <reason>
+    permission: spy.tempban
+  unban:
+    description: Unban a player
+    usage: /unban <player>
+    permission: spy.unban
+  mute:
+    description: Mute a player permanently
+    usage: /mute <player> <reason>
+    permission: spy.mute
+  unmute:
+    description: Unmute a player
+    usage: /unmute <player>
+    permission: spy.mute
+  warn:
+    description: Warn a player
+    usage: /warn <player> <reason>
+    permission: spy.warn
+  banlist:
+    description: Display all currently banned players
+    usage: /banlist
+    permission: spy.banlist
+  unwarn:
+    description: Remove all warnings from a player
+    usage: /unwarn <player>
+    permission: spy.unwarn
+  warnlist:
+    description: Display all warnings for a specific player
+    usage: /warnlist <player>
+    permission: spy.warnlist
+  mutelist:
+    description: Display all currently muted players
+    usage: /mutelist
+    permission: spy.mutelist
+
+permissions:
+  spy.admin:
+    description: Allows access to all ban commands
+    default: op
+    children:
+      spy.tempban: true
+      spy.unban: true
+      spy.banlist: true
+      spy.mute: true
+      spy.warn: true
+      spy.unwarn: true
+      spy.warnlist: true
+      spy.mutelist: true
+  spy.tempban:
+    description: Allows using /tempban command
+    default: op
+  spy.unban:
+    description: Allows using /unban command
+    default: op
+  spy.mute:
+    description: Allows using /mute and /unmute commands
+    default: op
+  spy.warn:
+    description: Allows using /warn command
+    default: op
+  spy.banlist:
+    description: Allows viewing the ban list
+    default: op
+  spy.unwarn:
+    description: Allows removing warnings from players
+    default: op
+  spy.warnlist:
+    description: Allows viewing player warnings
+    default: op
+  spy.mutelist:
+    description: Allows viewing the mute list
+    default: op
