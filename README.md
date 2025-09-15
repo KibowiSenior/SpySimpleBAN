@@ -7,10 +7,7 @@
 - **Author:** spy
 - **API Version:** 1.21
 
-SpySimpleBan is a comprehensive Minecraft moderation plugin that provides server administrators with complete punishment management tools.
-
-Key Features:
-
+## Key Features:
 Advanced Banning: Permanent and temporary bans with IP and UUID protection to prevent ban evasion
 Player Muting: Silence disruptive players while allowing them to remain on the server
 Warning System: Track player infractions with accumulated warning records
@@ -19,7 +16,6 @@ Offline Support: All moderation actions work on both online and offline players
 Auto-Expiration: Temporary bans automatically remove themselves when time expires
 Staff Tools: Complete moderation suite with proper permission controls
 Commands: 9 total commands covering ban/unban, mute/unmute, warn/unwarn, and list functionality for viewing all punishments.
-
 Data Storage: JSON-based storage system with automatic backups and thread-safe operations.
 
 Built for server administrators who need reliable, feature-complete moderation tools with anti-evasion protection.
