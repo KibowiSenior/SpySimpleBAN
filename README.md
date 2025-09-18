@@ -7,19 +7,6 @@
 - **Author:** spy
 - **API Version:** 1.21
 
-## Key Features:
-Advanced Banning: Permanent and temporary bans with IP and UUID protection to prevent ban evasion
-Player Muting: Silence disruptive players while allowing them to remain on the server
-Warning System: Track player infractions with accumulated warning records
-List Commands: View all active bans, mutes, and player warnings with detailed information
-Offline Support: All moderation actions work on both online and offline players
-Auto-Expiration: Temporary bans automatically remove themselves when time expires
-Staff Tools: Complete moderation suite with proper permission controls
-Commands: 9 total commands covering ban/unban, mute/unmute, warn/unwarn, and list functionality for viewing all punishments.
-Data Storage: JSON-based storage system with automatic backups and thread-safe operations.
-
-Built for server administrators who need reliable, feature-complete moderation tools with anti-evasion protection.
-
 ## Available Commands
 
 ### Ban Commands
@@ -92,6 +79,25 @@ Built for server administrators who need reliable, feature-complete moderation t
   - Broadcasts mute message to all players
   - Permanent mute (no expiration)
 
+#### `/tempmute <player> <time> <reason>`
+- **Description:** Temporarily mute a player
+- **Permission:** `spy.tempmute`
+- **Usage Example:** `/tempmute PlayerName 30m Spamming in chat`
+- **Time Format:**
+  - `s` = seconds (e.g., `30s`)
+  - `m` = minutes (e.g., `15m`)
+  - `h` = hours (e.g., `2h`)
+  - `d` = days (e.g., `7d`)
+  - Can combine: `1h30m` for 1 hour, 30 minutes
+- **Features:**
+  - Same mute functionality as permanent mute
+  - Automatically expires after specified time
+  - Shows duration in mute message
+  - Auto-cleanup removes expired mutes every second
+  - Works on both online and offline players
+  - For online players: Immediately notifies them with duration
+  - Broadcasts mute message with duration to all players
+
 #### `/unmute <player>`
 - **Description:** Remove a mute from a player
 - **Permission:** `spy.mute`
@@ -162,6 +168,7 @@ Built for server administrators who need reliable, feature-complete moderation t
 - `spy.tempban` - Allows /tempban command
 - `spy.unban` - Allows /unban command
 - `spy.mute` - Allows /mute and /unmute commands
+- `spy.tempmute` - Allows /tempmute command
 - `spy.warn` - Allows /warn command
 - `spy.banlist` - Allows /banlist command
 - `spy.unwarn` - Allows /unwarn command
@@ -185,7 +192,7 @@ Built for server administrators who need reliable, feature-complete moderation t
 - JSON format for easy reading and backup
 - Automatic data saving on all changes
 - Thread-safe operations
-- Automatic expired ban cleanup every second
+- Automatic expired ban and mute cleanup every second
 - UUID enrichment for offline players when they join
 
 ## Special Features
@@ -202,7 +209,8 @@ Built for server administrators who need reliable, feature-complete moderation t
 
 ### Auto-Expiration
 - Temporary bans automatically expire
-- Expired bans are cleaned up every second
+- Temporary mutes automatically expire
+- Expired bans and mutes are cleaned up every second
 - No manual intervention needed for timed punishments
 
 ### Staff Notifications
